@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="container-cards">
+    <div v-if="cards" class="container-cards">
       <Cards
         v-for="(card, index) in cards"
         :key="index"
@@ -19,11 +19,24 @@
         <h4>1997</h4>
       </div> -->
     </div>
+    <div v-else class="loading">
+      <img src="../assets/img/spotify-logo.png" alt="" />
+      <h1>
+        Caricamento in corso ...
+        <font-awesome-icon icon="spinner" rotation="270" />
+      </h1>
+    </div>
   </main>
 </template>
 
 <script>
 import axios from "axios";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+library.add(faUserSecret);
+
 import Cards from "./Cards.vue";
 export default {
   name: "Main",
@@ -87,6 +100,22 @@ main {
     //     color: #817d73;
     //   }
     // }
+  }
+  .loading {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+    img {
+      width: 30%;
+    }
+    h1 {
+      color: white;
+      font-size: 2em;
+      margin-top: 2em;
+    }
   }
 }
 </style>
