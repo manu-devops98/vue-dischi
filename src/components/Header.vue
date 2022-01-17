@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss">
 header {
-  background-color: #2e3a46;
+  background-color: #2d3a46;
   display: flex;
   .container-img {
     width: 10%;
