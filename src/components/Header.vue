@@ -14,13 +14,13 @@ export default {
 
 <style lang="scss">
 header {
-  //   height: 50px;
   background-color: #2e3a46;
   display: flex;
   .container-img {
     width: 10%;
     img {
-      width: 25%;
+      width: 35%;
+      padding: 0.5em;
     }
   }
 }
