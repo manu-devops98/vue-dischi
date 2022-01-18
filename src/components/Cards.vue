@@ -22,7 +22,7 @@ export default {
   width: calc(100% / 5 - 20px);
   text-align: center;
   padding: 1em;
-  margin: 10px;
+  margin: 0 10px 10px 10px;
   .container-img {
     width: 100%;
     img {

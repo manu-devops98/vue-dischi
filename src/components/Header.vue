@@ -16,6 +16,7 @@ export default {
 header {
   background-color: #2d3a46;
   display: flex;
+  height: 55px;
   .container-img {
     width: 10%;
     img {
