@@ -1,16 +1,19 @@
 <template>
-  <select
-    @change="$emit('changeSelect', selectValue)"
-    v-model="selectValue"
-    name="genere"
-    id="genere"
-  >
-    <option value="all">All</option>
-    <option value="rock">Rock</option>
-    <option value="pop">Pop</option>
-    <option value="metal">Metal</option>
-    <option value="jazz">Jazz</option>
-  </select>
+  <div class="select-container">
+    <label for="genre">Seleziona genere:</label>
+    <select
+      @change="$emit('changeSelect', selectValue)"
+      v-model="selectValue"
+      name="genere"
+      id="genere"
+    >
+      <option>All</option>
+      <option value="rock">Rock</option>
+      <option value="pop">Pop</option>
+      <option value="metal">Metal</option>
+      <option value="jazz">Jazz</option>
+    </select>
+  </div>
 </template>
 
 <script>
@@ -44,6 +47,7 @@ export default {
     top: 0;
     left: 35%;
     transform: translateX(-45%);
+    margin-right: 10px;
   }
 }
 </style>

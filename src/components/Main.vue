@@ -5,7 +5,7 @@
     </div>
     <div v-if="cards" class="container-cards">
       <Cards
-        v-for="(card, index) in cards"
+        v-for="(card, index) in filteredAlbums"
         :key="index"
         :image="card.poster"
         :imageAlt="card.title"
@@ -54,7 +54,7 @@ export default {
         this.filteredAlbums = this.cards;
       } else {
         this.filteredAlbums = this.cards.filter((album) => {
-          return album.genre == this.selectValue;
+          return album.genre.toLowerCase() == this.selectValue;
         });
       }
     },
