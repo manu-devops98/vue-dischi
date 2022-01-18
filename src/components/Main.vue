@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="select-container">
-      <Select @emitSelect="getSelect($event)" />
+      <Select @changeSelect="changeGenre($event)" />
     </div>
     <div v-if="cards" class="container-cards">
       <Cards
@@ -41,13 +41,22 @@ export default {
   data() {
     return {
       cards: null,
+      filteredAlbums: null,
       queryApi: "https://flynn.boolean.careers/exercises/api/array/music",
-      selectValue: "",
+      selectValue: "All",
     };
   },
   methods: {
-    getSelect(text) {
-      this.selectValue = text;
+    changeGenre(selected) {
+      this.selectValue = selected;
+      console.log("valore var. appoggio", this.selectValue);
+      if (this.selectValue == "" || this.selectValue == "All") {
+        this.filteredAlbums = this.cards;
+      } else {
+        this.filteredAlbums = this.cards.filter((album) => {
+          return album.genre == this.selected;
+        });
+      }
     },
   },
   mounted() {
@@ -55,6 +64,7 @@ export default {
       .get(this.queryApi)
       .then((result) => {
         this.cards = result.data.response;
+        this.filteredAlbums = this.cards;
         console.log(this.cards);
       })
       .catch((error) => {

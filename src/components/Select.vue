@@ -1,5 +1,11 @@
 <template>
-  <select @click="sendSelect()" ref="selectGenere" name="genere" id="genere">
+  <select
+    @change="$emit('changeSelect', selectValue)"
+    v-model="selectValue"
+    name="genere"
+    id="genere"
+  >
+    <option>All</option>
     <option value="rock">Rock</option>
     <option value="pop">Pop</option>
     <option value="metal">Metal</option>
@@ -12,16 +18,10 @@ export default {
   name: "Select",
   data() {
     return {
-      selectValue: "Rock",
+      selectValue: "All",
     };
   },
-  methods: {
-    sendSelect() {
-      this.selectValue = this.$refs.selectGenere.value;
-      console.log(this.selectValue);
-      this.$emit("emitSelect", this.selectValue);
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -34,7 +34,7 @@ export default {
     transform: translateX(-40%);
     padding: 0.4em;
     margin-top: 1em;
-    width: 100px;
+    width: 180px;
     background-color: #2d3a46;
     color: white;
   }
