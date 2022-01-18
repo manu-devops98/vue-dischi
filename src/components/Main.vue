@@ -1,8 +1,6 @@
 <template>
   <main>
-    <div class="select-container">
-      <Select @changeSelect="changeGenre($event)" />
-    </div>
+    <Select @changeSelect="changeGenre($event)" />
     <div v-if="cards" class="container-cards">
       <Cards
         v-for="(card, index) in filteredAlbums"
