@@ -54,7 +54,7 @@ export default {
         this.filteredAlbums = this.cards;
       } else {
         this.filteredAlbums = this.cards.filter((album) => {
-          return album.genre == this.selected;
+          return album.genre == this.selectValue;
         });
       }
     },

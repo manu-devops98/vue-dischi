@@ -5,7 +5,7 @@
     name="genere"
     id="genere"
   >
-    <option>All</option>
+    <option value="all">All</option>
     <option value="rock">Rock</option>
     <option value="pop">Pop</option>
     <option value="metal">Metal</option>
